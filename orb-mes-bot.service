@@ -1,0 +1,12 @@
+[Unit]
+Description=ORB-MES trend sleeve paper bot (first-hour range breakout, MES, PAPER ONLY, shadow switch vs live Rust account)
+After=network-online.target
+StartLimitIntervalSec=600
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=/home/hatch/workspace/orb-mes-bot
+ExecStart=/home/hatch/workspace/orb-mes-bot/run_supervised.sh
+Restart=on-failure
+RestartSec=10

@@ -1,0 +1,14 @@
+# ORB-MES paper bot configuration (Phase 1, built Nov 20, 2026).
+# Spec: ~/workspace/goals/topstepx-trading-bot-setup/files/orb-mes-spec-2026-11-20.md
+# PAPER is the only supported mode; the bot refuses to start otherwise
+# and places ZERO orders in every mode. Signals: ES 1m bars (MES tracks
+# ES point-for-point); P&L modeled at MES $5/pt with the backtest's cost
+# model (fee $0.38 RT + 1 tick slippage on entry/stop/time exits).
+mode: "paper"
+
+signal_contract_id: "CON.F.US.EP.Z26"   # ES Dec-2026 front month (bars only)
+target_r: 1.0                            # Steve, Nov 20 2026: 1R
+combined_stop: 600.0                     # shared with Rust: -$600 day stop
+combined_cap: 1400.0                     # shared with Rust: +$1,400 day cap
+paper_halt: 500.0                        # this bot's own paper halt
+poll_seconds: 30
